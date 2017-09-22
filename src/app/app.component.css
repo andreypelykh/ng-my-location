@@ -1,3 +1,12 @@
 .title {
 	text-align: center;
 }
+
+footer {
+	padding: 10px;
+}
+
+.router-link.active {
+	text-decoration: none;
+	cursor: default;
+}
