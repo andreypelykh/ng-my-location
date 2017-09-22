@@ -9,7 +9,7 @@ export class Location {
 		public name: string,
 		public address: string,
 		public coordinates: Coordinates,
-		public category: Category
+		public categoryId: string
 	) {
 		this.id = UUID.UUID();
 	}
