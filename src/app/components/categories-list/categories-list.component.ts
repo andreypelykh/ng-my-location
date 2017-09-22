@@ -14,17 +14,9 @@ export class CategoriesListComponent implements OnInit {
   
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   toggleSelect(category: Category) {
-    if (category !== this.selectedCategory) {
-      this.selectedCategory = category;
-    }
-    else {
-      this.selectedCategory = null;
-    }
-    
-    this.onSelected.emit(this.selectedCategory);
+    this.onSelected.emit(category);
   }
 }

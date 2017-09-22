@@ -22,7 +22,12 @@ export class PageCategoriesComponent implements OnInit {
   }
 
   onSelected(category: Category) {
-  	this.selectedCategory = category;
+    if (this.selectedCategory === category) {
+      this.selectedCategory = null;
+    }
+    else {
+  	  this.selectedCategory = category;
+    }
   }
 
   onAddingSaved(name: string) {
