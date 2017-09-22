@@ -39,9 +39,16 @@ export class CategoryService {
     this.updateStore(newArray);
   }
 
-  public changeCategory(category: Category) {
+  public changeCategory(category: Category, categoryChanges: any) {
+    const changedCategory = Object.assign({}, category, categoryChanges);
 
-    const newArray = this.currentValue.map(e => e.id === category.id ? category : e);
+    const pos = this.currentValue.indexOf(category);
+
+    const newArray = [
+      ...this.currentValue.slice(0, pos),
+      changedCategory,
+      ...this.currentValue.slice(pos + 1),
+    ];
 
     this.updateStore(newArray);
   }

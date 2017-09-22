@@ -31,11 +31,7 @@ export class PageCategoriesComponent implements OnInit {
   }
 
   onEditingSaved(name: string) {
-    const newCategory = new Category(name);
-    newCategory.id = this.selectedCategory.id;
-    
-    this.categoryService.changeCategory(newCategory);
-    this.selectedCategory = newCategory;
+    this.categoryService.changeCategory(this.selectedCategory, { name });
   }
 
   onAddCategory() {
