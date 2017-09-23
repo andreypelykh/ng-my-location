@@ -11,6 +11,7 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 import { EditCategoryComponent } from './components/edit-category/edit-category.component';
 import { PageLocationsComponent } from './components/page-locations/page-locations.component';
+import { LocationsListComponent } from './components/locations-list/locations-list.component';
 
 const appRoutes: Routes = [
   { path: 'category', component: PageCategoriesComponent },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     CategoriesListComponent,
     EditCategoryComponent,
     PageLocationsComponent,
+    LocationsListComponent,
   ],
   imports: [
     BrowserModule,
