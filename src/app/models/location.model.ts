@@ -1,6 +1,10 @@
 import { UUID } from 'angular2-uuid';
-import { Coordinates } from './coordinates.model';
 import { Category } from './category.model';
+
+export interface Position {
+	lat: number;
+	lng: number;
+}
 
 export class Location {
 	id: string;
@@ -8,9 +12,16 @@ export class Location {
 	constructor(
 		public name: string,
 		public address: string,
-		public coordinates: Coordinates,
+		public coordinates: Position,
 		public categoryId: string
 	) {
 		this.id = UUID.UUID();
 	}
+}
+
+export interface LocationProperties {
+	name ?: string,
+	address ?: string,
+	coordinates ?: Position,
+	categoryId ?: string
 }
