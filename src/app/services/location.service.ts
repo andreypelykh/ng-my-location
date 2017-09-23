@@ -3,6 +3,11 @@ import { AsyncLocalStorage } from 'angular-async-local-storage';
 import { Location, LocationProperties } from '../models/location.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+export const LOCATIONS: Location[] = [
+  new Location('Shop1', 'Bluhera street', {lat: 234875, lng: 34324}, '464354253'),
+  new Location('Library', 'Walker street', {lat: 234875, lng: 34324}, '4354253')
+];
+
 @Injectable()
 export class LocationService {
   private locations = new BehaviorSubject<Location[]>([]);
