@@ -1,3 +1,17 @@
-<p>
-  page-locations works!
-</p>
+<app-top-bar title="Locations" 
+						(add)="onAddCategory()"
+						(edit)="onEditCategory()"
+						(remove)="removeCategory()"></app-top-bar>
+
+<div class="box" *ngIf="isEditing && selectedLocation">
+	<h3>Editing</h3>
+<!-- 	<app-edit-category [category]="selectedCategory" (save)="onEditingSaved($event)"></app-edit-category> -->
+</div>
+
+<div class="box" *ngIf="isAdding">
+	<h3>Adding</h3>
+	<!-- <app-edit-category (save)="onAddingSaved($event)"></app-edit-category> -->
+</div>
+
+
+<app-locations-list [locations]="locations" [selectedLocation]="selectedLocation" (onSelected)="onSelected($event)"></app-locations-list>
