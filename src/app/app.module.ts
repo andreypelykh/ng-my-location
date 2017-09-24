@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule, FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AsyncLocalStorageModule } from 'angular-async-local-storage';
@@ -12,6 +12,7 @@ import { CategoriesListComponent } from './components/categories-list/categories
 import { EditCategoryComponent } from './components/edit-category/edit-category.component';
 import { PageLocationsComponent } from './components/page-locations/page-locations.component';
 import { LocationsListComponent } from './components/locations-list/locations-list.component';
+import { EditLocationComponent } from './components/edit-location/edit-location.component';
 
 const appRoutes: Routes = [
   { path: 'category', component: PageCategoriesComponent },
@@ -31,14 +32,16 @@ const appRoutes: Routes = [
     EditCategoryComponent,
     PageLocationsComponent,
     LocationsListComponent,
+    EditLocationComponent,
   ],
   imports: [
     BrowserModule,
     AsyncLocalStorageModule,
+    ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     )
   ],
   providers: [],

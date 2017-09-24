@@ -2,8 +2,8 @@ import { UUID } from 'angular2-uuid';
 import { Category } from './category.model';
 
 export interface Position {
-	lat: number;
-	lng: number;
+	lat: string;
+	lng: string;
 }
 
 export class Location {

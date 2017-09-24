@@ -4,8 +4,8 @@ import { Location, LocationProperties } from '../models/location.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export const LOCATIONS: Location[] = [
-  new Location('Shop1', 'Bluhera street', {lat: 234875, lng: 34324}, '464354253'),
-  new Location('Library', 'Walker street', {lat: 234875, lng: 34324}, '4354253')
+  new Location('Shop1', 'Bluhera street', {lat: '234875', lng: '34324'}, '464354253'),
+  new Location('Library', 'Walker street', {lat: '234875', lng: '34324'}, '4354253')
 ];
 
 @Injectable()
@@ -28,6 +28,7 @@ export class LocationService {
   }
 
   public addLocation(location: Location) {
+    console.log('add location');
 
     const newArray = [
     	...this.currentValue,
@@ -49,8 +50,18 @@ export class LocationService {
     this.updateStore(newArray);
   }
 
-  public changeLocation(location: Location, locationChanges: LocationProperties) {
-    const changedLocation = Object.assign({}, location, locationChanges);
+  public changeLocation(location: Location, changes: any) {
+    console.log('changes', changes);
+    console.log('location', location);
+
+    const changedLocation = Object.assign({}, location, {
+      name: changes.name,
+      coordinates: {
+        lat: changes.lat,
+        lng: changes.lng,
+      },
+      categoryId: changes.categoryId
+    });
 
     const pos = this.currentValue.indexOf(location);
 

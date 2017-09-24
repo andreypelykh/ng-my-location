@@ -5,12 +5,13 @@
 
 <div class="box" *ngIf="isEditing && selectedLocation">
 	<h3>Editing</h3>
-<!-- 	<app-edit-category [category]="selectedCategory" (save)="onEditingSaved($event)"></app-edit-category> -->
+	<app-edit-location [location]="selectedLocation" [categories]="categories" (save)="onEditingSaved($event)"></app-edit-location>
+
 </div>
 
 <div class="box" *ngIf="isAdding">
 	<h3>Adding</h3>
-	<!-- <app-edit-category (save)="onAddingSaved($event)"></app-edit-category> -->
+	<app-edit-location [categories]="categories" (save)="onAddingSaved($event)"></app-edit-location>
 </div>
 
 

@@ -1,0 +1,33 @@
+<div class="edit">
+	<form (ngSubmit)="onSubmit()" [formGroup]="locationForm" novalidate>
+		<div class="row">
+			<input type="text" formControlName="name" placeholder="Name">
+		</div>
+
+		<div class="row">
+			<input type="text" formControlName="address" placeholder="Address">
+		</div>
+
+		<div class="row">
+			<input type="text" formControlName="lat" placeholder="Latitude">
+			<input type="text" formControlName="lng" placeholder="Longitude">
+		</div>
+
+		<div class="row">
+			<label>Select category: 
+				<select formControlName="categoryId">
+					<option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+				</select>
+			</label>
+		</div>
+
+		<div class="row">
+			<button type="submit" [disabled]="!locationForm.valid">Save</button>
+		</div>
+
+		<div [hidden]="locationForm.valid || locationForm.pristine" >
+			All fields are required
+		</div>
+
+	</form>
+</div>
