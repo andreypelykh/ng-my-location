@@ -1,0 +1,20 @@
+<form class="box" [formGroup]="filterForm" novalidate>
+		<h3 class="row">Filter</h3>
+
+		<div class="row">
+			<label>
+				<input type="checkbox" formControlName="alphabetically">
+				Alphabetically
+			</label>
+		</div>
+
+		<div class="row">
+			<label>Select category: 
+				<select formControlName="categoryId">
+					<option value="all"> All categories </option>
+					<option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+				</select>
+			</label>
+		</div>
+
+</form>

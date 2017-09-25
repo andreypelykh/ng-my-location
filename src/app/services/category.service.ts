@@ -11,10 +11,11 @@ export class CategoryService {
   public constructor(protected storage: AsyncLocalStorage) {
     
   	this.storage.getItem('categories').subscribe((categories:Category[]) => {
-      this.categories.next(categories);
+      categories && this.categories.next(categories);
   	});
 
     this.categories.subscribe(e => {
+
       this.currentValue = e;
       console.log('new array');
     });

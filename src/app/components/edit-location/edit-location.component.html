@@ -16,6 +16,7 @@
 		<div class="row">
 			<label>Select category: 
 				<select formControlName="categoryId">
+					<option [value]="null"> Not selected </option>
 					<option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
 				</select>
 			</label>

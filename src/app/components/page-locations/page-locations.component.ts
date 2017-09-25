@@ -3,13 +3,14 @@ import { Location, LocationProperties } from '../../models/location.model';
 import { Category } from '../../models/category.model';
 import { LocationService } from '../../services/location.service';
 import { CategoryService } from '../../services/category.service';
+import { LocationsFilterService, LocationsFilter } from '../../services/locations-filter/locations-filter.service';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-page-locations',
   templateUrl: './page-locations.component.html',
   styleUrls: ['./page-locations.component.css'],
-  providers: [ LocationService, CategoryService ]
+  providers: [ LocationService, CategoryService, LocationsFilterService ]
 })
 export class PageLocationsComponent implements OnInit {
 	selectedLocation: Location = null;
@@ -19,11 +20,18 @@ export class PageLocationsComponent implements OnInit {
 
   categories: Category[];
 
-  constructor(private locationService: LocationService, private categoryService: CategoryService) { }
+  filteredLocations$: Observable<Location[]>
+
+  constructor(
+    private locationService: LocationService,
+    private categoryService: CategoryService,
+    private filterService: LocationsFilterService
+  ) { }
 
   ngOnInit() {
     this.locations = this.locationService.getLocations();
   	this.categoryService.getCategories().subscribe((categories) => this.categories = categories);
+    this.filteredLocations$ = this.filterService.setSource(this.locations);
   }
 
   onSelected(location: Location) {
@@ -53,6 +61,7 @@ export class PageLocationsComponent implements OnInit {
   }
 
   onAddCategory() {
+    console.log('page-locations add');
     this.isEditing = false;
     this.isAdding = !this.isAdding;
   }
@@ -66,6 +75,10 @@ export class PageLocationsComponent implements OnInit {
 
   removeCategory() {
     this.selectedLocation && this.locationService.removeLocation(this.selectedLocation);
+  }
+
+  filterChanged(filter: LocationsFilter) {
+    this.filterService.changeFilter(filter);
   }
 
 }

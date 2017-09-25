@@ -14,5 +14,8 @@
 	<app-edit-location [categories]="categories" (save)="onAddingSaved($event)"></app-edit-location>
 </div>
 
+<app-locations-filter [categories]="categories"
+											(changed)="filterChanged($event)"
+></app-locations-filter>
 
-<app-locations-list [locations]="locations" [selectedLocation]="selectedLocation" (onSelected)="onSelected($event)"></app-locations-list>
+<app-locations-list [locations]="filteredLocations$" [selectedLocation]="selectedLocation" (onSelected)="onSelected($event)"></app-locations-list>

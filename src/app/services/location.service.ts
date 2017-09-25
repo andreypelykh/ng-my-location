@@ -15,7 +15,7 @@ export class LocationService {
  
   public constructor(protected storage: AsyncLocalStorage) {
 		this.storage.getItem('locations').subscribe((locations:Location[]) => {
-	    this.locations.next(locations);
+	    locations && this.locations.next(locations);
 		});
 
 	  this.locations.subscribe(e => {

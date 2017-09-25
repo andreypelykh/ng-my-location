@@ -25,7 +25,7 @@ export class EditLocationComponent implements OnChanges {
       address: ['', Validators.required ],
       lat: ['', Validators.required ],
       lng: ['', Validators.required ],
-      categoryId: ['', Validators.required ],
+      categoryId: [null],
     });
   }
 
@@ -44,14 +44,13 @@ export class EditLocationComponent implements OnChanges {
       
     }
     else {
-      const categoryId = this.categories ? this.categories[0].id : ''; 
 
   		formValues = {
         name: '',
         address: '',
         lat: '',
         lng: '',
-        categoryId: categoryId,
+        categoryId: null,
       };
 
   	}

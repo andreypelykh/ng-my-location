@@ -13,6 +13,7 @@ import { EditCategoryComponent } from './components/edit-category/edit-category.
 import { PageLocationsComponent } from './components/page-locations/page-locations.component';
 import { LocationsListComponent } from './components/locations-list/locations-list.component';
 import { EditLocationComponent } from './components/edit-location/edit-location.component';
+import { LocationsFilterComponent } from './components/locations-filter/locations-filter.component';
 
 const appRoutes: Routes = [
   { path: 'category', component: PageCategoriesComponent },
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
     PageLocationsComponent,
     LocationsListComponent,
     EditLocationComponent,
+    LocationsFilterComponent,
   ],
   imports: [
     BrowserModule,

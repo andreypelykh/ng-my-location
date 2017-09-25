@@ -18,6 +18,7 @@ export class TopBarComponent implements OnInit {
   }
 
   onAdd() {
+    console.log('top-bar add');
     this.add.emit();
   }
 
