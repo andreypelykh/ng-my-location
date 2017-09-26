@@ -2,6 +2,7 @@
 	<div *ngFor="let location of locations | async" class="location" (click)="toggleSelect(location)" [class.selected]="location?.id === selectedLocation?.id">
 		<h4>{{ location.name }}</h4> <br>
 		{{ location.address }} <br>
-		<small>{{ location.coordinates.lat }};{{ location.coordinates.lng }}</small>
+		<small>{{ location.coordinates.lat }};{{ location.coordinates.lng }}</small><br>
+		<a [routerLink]="['/location',  location.coordinates.lat, location.coordinates.lng]" >Show on the map</a>
 	</div>
 </div>

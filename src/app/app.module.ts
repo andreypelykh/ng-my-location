@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AsyncLocalStorageModule } from 'angular-async-local-storage';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { PageCategoriesComponent } from './components/page-categories/page-categories.component';
@@ -14,10 +15,12 @@ import { PageLocationsComponent } from './components/page-locations/page-locatio
 import { LocationsListComponent } from './components/locations-list/locations-list.component';
 import { EditLocationComponent } from './components/edit-location/edit-location.component';
 import { LocationsFilterComponent } from './components/locations-filter/locations-filter.component';
+import { LocationDetailComponent } from './components/location-detail/location-detail.component';
 
 const appRoutes: Routes = [
   { path: 'category', component: PageCategoriesComponent },
   { path: 'location', component: PageLocationsComponent },
+  { path: 'location/:lat/:lng', component: LocationDetailComponent },
   { path: '',
     redirectTo: '/category',
     pathMatch: 'full'
@@ -35,6 +38,7 @@ const appRoutes: Routes = [
     LocationsListComponent,
     EditLocationComponent,
     LocationsFilterComponent,
+    LocationDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
-    )
+    ),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCB58SCEDd-OEoW7pgR7bR5BxiHZkWY2Gc'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
