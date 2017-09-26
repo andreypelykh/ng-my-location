@@ -41,6 +41,8 @@ export class PageLocationsComponent implements OnInit {
     else {
   	  this.selectedLocation = location;
     }
+
+    window.navigator.vibrate(1000);
   }
 
   onAddingSaved(properties: any) {
