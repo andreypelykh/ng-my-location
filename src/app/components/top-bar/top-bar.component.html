@@ -1,7 +1,25 @@
 <div class="bar">
-	<h2 class="title">{{ title }}</h2>
+	
+	<md-toolbar>
+		<h2 class="title">{{ title }}</h2>
 
-	<button class="button" (click)="onAdd()">Add</button>
-	<button class="button" (click)="onRemove()">Remove</button>
-	<button class="button" (click)="onEdit()">Edit</button>
+
+
+		<button md-raised-button class="button" (click)="onAdd()">
+			<md-icon>add</md-icon> <span class="button-text">Add</span>
+		</button>
+		
+		<ng-container *ngIf="selected">
+			
+			<button md-raised-button class="button" (click)="onRemove()">
+				<md-icon>delete</md-icon> <span class="button-text">Remove</span>
+			</button>
+
+			<button md-raised-button class="button" (click)="onEdit()">
+				<md-icon>edit</md-icon> <span class="button-text">Edit</span>
+			</button>
+
+		</ng-container>
+
+	</md-toolbar>
 </div>

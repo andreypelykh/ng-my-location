@@ -1,34 +1,37 @@
 <div class="edit">
 	<form (ngSubmit)="onSubmit()" [formGroup]="locationForm" novalidate>
-		<div class="row">
-			<input type="text" formControlName="name" placeholder="Name">
-		</div>
+	
+			<md-form-field class="example-full-width">
+				<input mdInput type="text" formControlName="name" placeholder="Name">
+			</md-form-field>
+		
+
+			<md-form-field class="example-full-width">
+				<input mdInput type="text" formControlName="address" placeholder="Address">
+			</md-form-field>
+
+
+			<md-form-field class="example-full-width">
+				<input mdInput type="text" formControlName="lat" placeholder="Latitude">
+			</md-form-field>
+			<md-form-field class="example-full-width">
+				<input mdInput type="text" formControlName="lng" placeholder="Longitude">
+			</md-form-field>
+
+			<md-select formControlName="categoryId" placeholder="Category">
+				<md-option [value]="null">Not selected</md-option>
+			  <md-option *ngFor="let category of categories" [value]="category.id">
+			  	{{ category.name }}
+			  </md-option>
+			</md-select>
 
 		<div class="row">
-			<input type="text" formControlName="address" placeholder="Address">
+			<button md-raised-button type="submit" [disabled]="!locationForm.valid">Save</button>
 		</div>
 
-		<div class="row">
-			<input type="text" formControlName="lat" placeholder="Latitude">
-			<input type="text" formControlName="lng" placeholder="Longitude">
-		</div>
-
-		<div class="row">
-			<label>Select category: 
-				<select formControlName="categoryId">
-					<option [value]="null"> Not selected </option>
-					<option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
-				</select>
-			</label>
-		</div>
-
-		<div class="row">
-			<button type="submit" [disabled]="!locationForm.valid">Save</button>
-		</div>
-
-		<div [hidden]="locationForm.valid || locationForm.pristine" >
+<!-- 		<div [hidden]="locationForm.valid || locationForm.pristine" >
 			All fields are required
-		</div>
+		</div> -->
 
 	</form>
 </div>

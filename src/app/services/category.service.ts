@@ -52,6 +52,8 @@ export class CategoryService {
     ];
 
     this.updateStore(newArray);
+
+    return changedCategory;
   }
 
   private updateStore(newValue) {

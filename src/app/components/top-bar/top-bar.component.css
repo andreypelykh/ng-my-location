@@ -1,12 +1,19 @@
-.bar {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
+
 .title {
 	margin: 0;
 	margin-right: auto;
+	font-size: 19px;
 }
+
 .button {
-	margin: 5px;
+	min-width: auto;
+	padding: 0 10px;
+}
+
+.button:not(:last-child) {
+	margin-right: 5px;
+}
+
+.button-text {
+	display: none;
 }

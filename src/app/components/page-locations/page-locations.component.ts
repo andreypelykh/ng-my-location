@@ -5,6 +5,8 @@ import { LocationService } from '../../services/location.service';
 import { CategoryService } from '../../services/category.service';
 import { LocationsFilterService, LocationsFilter } from '../../services/locations-filter/locations-filter.service';
 import { Observable } from 'rxjs';
+import {MdSnackBar, MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import { MainDialogComponent } from '../main-dialog/main-dialog.component';
 
 @Component({
   selector: 'app-page-locations',
@@ -15,8 +17,8 @@ import { Observable } from 'rxjs';
 export class PageLocationsComponent implements OnInit {
 	selectedLocation: Location = null;
 	locations: Observable<Location[]>;
-  isEditing: boolean = false;
-	isAdding: boolean = false;
+ //  isEditing: boolean = false;
+	// isAdding: boolean = false;
 
   categories: Category[];
 
@@ -25,7 +27,9 @@ export class PageLocationsComponent implements OnInit {
   constructor(
     private locationService: LocationService,
     private categoryService: CategoryService,
-    private filterService: LocationsFilterService
+    private filterService: LocationsFilterService,
+    public snackBar: MdSnackBar,
+    public dialog: MdDialog
   ) { }
 
   ngOnInit() {
@@ -56,31 +60,72 @@ export class PageLocationsComponent implements OnInit {
       },
       properties.categoryId
     ));
+    
+    this.openSnackBar('Location was saved.')
   }
 
   onEditingSaved(properties: any) {
-    this.locationService.changeLocation(this.selectedLocation, properties);
+    this.selectedLocation = this.locationService.changeLocation(this.selectedLocation, properties);
+    this.openSnackBar('Location was saved.')
   }
 
-  onAddCategory() {
+  onAddLocation() {
     console.log('page-locations add');
-    this.isEditing = false;
-    this.isAdding = !this.isAdding;
+    // this.isEditing = false;
+    // this.isAdding = !this.isAdding;
+    this.openDialog('Add location');
   }
 
-  onEditCategory() {
+  onEditLocation() {
     if (this.selectedLocation) {
-      this.isAdding = false;
-      this.isEditing = !this.isEditing;
+      // this.isAdding = false;
+      // this.isEditing = !this.isEditing;
+      this.openDialog('Edit location', this.selectedLocation);
     }
   }
 
-  removeCategory() {
-    this.selectedLocation && this.locationService.removeLocation(this.selectedLocation);
+  removeLocation() {
+    if (this.selectedLocation) {
+      this.locationService.removeLocation(this.selectedLocation);
+
+      this.openSnackBar('Location was removed.')
+    } 
   }
 
   filterChanged(filter: LocationsFilter) {
     this.filterService.changeFilter(filter);
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, null, {
+      duration: 3000,
+    });
+  }
+
+  openDialog(title: string, location: Location = null): void {
+    let dialogRef = this.dialog.open(MainDialogComponent, {
+      width: '250px',
+      data: {
+        title,
+        location,
+        categories: this.categories 
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+
+      if (result === undefined) {
+        return;
+      }
+
+      if (location) {
+        this.onEditingSaved(result);
+      }
+      else {
+        this.onAddingSaved(result);
+      }
+    });
   }
 
 }

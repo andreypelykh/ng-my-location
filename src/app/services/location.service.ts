@@ -72,6 +72,7 @@ export class LocationService {
     ];
 
     this.updateStore(newArray);
+    return changedLocation;
   }
 
   private updateStore(newValue) {

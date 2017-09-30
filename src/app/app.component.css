@@ -6,7 +6,15 @@ footer {
 	padding: 10px;
 }
 
+.router-link {
+	color: #444;
+}
+
 .router-link.active {
 	text-decoration: none;
 	cursor: default;
 }
+
+.router-link:not(active):hover {
+	text-decoration: none;
+} 

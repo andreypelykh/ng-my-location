@@ -1,0 +1,6 @@
+<h2 md-dialog-title>{{ data?.title }}</h2>
+
+<md-dialog-content>
+	<app-edit-category *ngIf="data.category !== undefined" [category]="data.category" (save)="onCompleted($event)"></app-edit-category>
+	<app-edit-location *ngIf="data.location !== undefined" [location]="data.location" [categories]="data.categories" (save)="onCompleted($event)"></app-edit-location>
+</md-dialog-content>

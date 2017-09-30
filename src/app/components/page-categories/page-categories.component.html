@@ -1,16 +1,8 @@
 <app-top-bar title="Categories" 
 						(add)="onAddCategory()"
 						(edit)="onEditCategory()"
-						(remove)="removeCategory()"></app-top-bar>
-
-<div class="box" *ngIf="isEditing && selectedCategory">
-	<h3>Editing</h3>
-	<app-edit-category [category]="selectedCategory" (save)="onEditingSaved($event)"></app-edit-category>
-</div>
-
-<div class="box" *ngIf="isAdding">
-	<h3>Adding</h3>
-	<app-edit-category (save)="onAddingSaved($event)"></app-edit-category>
-</div>
+						(remove)="removeCategory()"
+						[selected]="selectedCategory"
+						></app-top-bar>
 
 <app-categories-list [categories]="categories" [selectedCategory]="selectedCategory" (onSelected)="onSelected($event)"></app-categories-list>

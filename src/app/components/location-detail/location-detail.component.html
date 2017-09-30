@@ -1,9 +1,6 @@
-<button (click)="gotoLocations()">Back to locations</button>
 
-<p>
-	Latitude: {{ lat }}
-	Longitude: {{ lng }}
-</p>
+<button md-raised-button (click)="gotoLocations()"><md-icon>reply</md-icon> Back to locations</button>
+
 
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>

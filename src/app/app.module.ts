@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,6 +17,22 @@ import { LocationsListComponent } from './components/locations-list/locations-li
 import { EditLocationComponent } from './components/edit-location/edit-location.component';
 import { LocationsFilterComponent } from './components/locations-filter/locations-filter.component';
 import { LocationDetailComponent } from './components/location-detail/location-detail.component';
+
+import {
+  MatButtonToggleModule,
+  MatCheckboxModule,
+  MatButtonModule,
+  MatIconModule,
+  MatCardModule,
+  MatInputModule,
+  MatSnackBarModule,
+  MatToolbarModule,
+  MatGridListModule,
+  MatSelectModule,
+  MatSlideToggleModule,
+  MatDialogModule
+} from '@angular/material';
+import { MainDialogComponent } from './components/main-dialog/main-dialog.component';
 
 const appRoutes: Routes = [
   { path: 'category', component: PageCategoriesComponent },
@@ -39,6 +56,7 @@ const appRoutes: Routes = [
     EditLocationComponent,
     LocationsFilterComponent,
     LocationDetailComponent,
+    MainDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +69,23 @@ const appRoutes: Routes = [
     ),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCB58SCEDd-OEoW7pgR7bR5BxiHZkWY2Gc'
-    })
+    }),
+    BrowserAnimationsModule,
+    MatButtonToggleModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    MainDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
