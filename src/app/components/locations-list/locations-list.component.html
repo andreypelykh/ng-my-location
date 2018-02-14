@@ -1,8 +1,8 @@
 <div class="list">
-	<md-card *ngFor="let location of locations | async" class="location" (click)="toggleSelect(location)" [class.selected]="location?.id === selectedLocation?.id">
+	<mat-card *ngFor="let location of locations | async" class="location" (click)="toggleSelect(location)" [class.selected]="location?.id === selectedLocation?.id">
 		<h4>{{ location.name }}</h4>
 		<p class="address">{{ location.address }}</p>
 	
-		<a md-raised-button md-icon-button [routerLink]="['/location',  location.coordinates.lat, location.coordinates.lng]" ><md-icon>place</md-icon> </a>
-	</md-card>
+		<a md-raised-button md-icon-button [routerLink]="['/location',  location.coordinates.lat, location.coordinates.lng]" ><mat-icon>place</mat-icon> </a>
+	</mat-card>
 </div>

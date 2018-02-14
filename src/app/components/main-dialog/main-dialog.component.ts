@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-main-dialog',
@@ -9,8 +9,8 @@ import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 export class MainDialogComponent {
 
   constructor(
-    public dialogRef: MdDialogRef<MainDialogComponent>,
-    @Inject(MD_DIALOG_DATA) public data: any
+    public dialogRef: MatDialogRef<MainDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   onCompleted($event) {

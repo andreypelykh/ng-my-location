@@ -1,5 +1,5 @@
 <div class="list">
-	<md-card *ngFor="let category of categories | async" class="category" (click)="toggleSelect(category)" [class.selected]="category?.id === selectedCategory?.id">
+	<mat-card *ngFor="let category of categories | async" class="category" (click)="toggleSelect(category)" [class.selected]="category?.id === selectedCategory?.id">
 		{{ category.name }}
-	</md-card>
+	</mat-card>
 </div>

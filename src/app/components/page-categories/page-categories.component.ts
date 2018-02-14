@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/category.service';
 import { Observable } from 'rxjs';
-import {MdSnackBar, MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import {MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { MainDialogComponent } from '../main-dialog/main-dialog.component';
 
 @Component({
@@ -17,8 +17,8 @@ export class PageCategoriesComponent implements OnInit {
 
   constructor(
     private categoryService: CategoryService,
-    public snackBar: MdSnackBar,
-    public dialog: MdDialog
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {

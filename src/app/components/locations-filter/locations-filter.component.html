@@ -1,17 +1,17 @@
 	<form [formGroup]="filterForm" novalidate>
-		<md-toolbar class="filter-box">
+		<mat-toolbar class="filter-box">
 
 
 			<div class="control">
-				<md-slide-toggle formControlName="alphabetically">Alphabetically</md-slide-toggle>
+				<mat-slide-toggle formControlName="alphabetically">Alphabetically</mat-slide-toggle>
 			</div>
 
 			<div class="control">
-				<md-select formControlName="categoryId">
-					<md-option value="all"> All categories </md-option>
-					<md-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</md-option>
-				</md-select>
+				<mat-select formControlName="categoryId">
+					<mat-option value="all"> All categories </mat-option>
+					<mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</mat-option>
+				</mat-select>
 			</div>
 
-		</md-toolbar>
+		</mat-toolbar>
 	</form>

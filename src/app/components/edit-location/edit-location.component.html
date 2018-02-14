@@ -1,32 +1,32 @@
 <div class="edit">
 	<form (ngSubmit)="onSubmit()" [formGroup]="locationForm" novalidate>
 	
-			<md-form-field class="example-full-width">
-				<input mdInput type="text" formControlName="name" placeholder="Name">
-			</md-form-field>
+			<mat-form-field class="example-full-width">
+				<input matInput type="text" formControlName="name" placeholder="Name">
+			</mat-form-field>
 		
 
-			<md-form-field class="example-full-width">
-				<input mdInput type="text" formControlName="address" placeholder="Address">
-			</md-form-field>
+			<mat-form-field class="example-full-width">
+				<input matInput type="text" formControlName="address" placeholder="Address">
+			</mat-form-field>
 
 
-			<md-form-field class="example-full-width">
-				<input mdInput type="text" formControlName="lat" placeholder="Latitude">
-			</md-form-field>
-			<md-form-field class="example-full-width">
-				<input mdInput type="text" formControlName="lng" placeholder="Longitude">
-			</md-form-field>
+			<mat-form-field class="example-full-width">
+				<input matInput type="text" formControlName="lat" placeholder="Latitude">
+			</mat-form-field>
+			<mat-form-field class="example-full-width">
+				<input matInput type="text" formControlName="lng" placeholder="Longitude">
+			</mat-form-field>
 
-			<md-select formControlName="categoryId" placeholder="Category">
-				<md-option [value]="null">Not selected</md-option>
-			  <md-option *ngFor="let category of categories" [value]="category.id">
+			<mat-select formControlName="categoryId" placeholder="Category">
+				<mat-option [value]="null">Not selected</mat-option>
+			  <mat-option *ngFor="let category of categories" [value]="category.id">
 			  	{{ category.name }}
-			  </md-option>
-			</md-select>
+			  </mat-option>
+			</mat-select>
 
 		<div class="row">
-			<button md-raised-button type="submit" [disabled]="!locationForm.valid">Save</button>
+			<button mat-raised-button type="submit" [disabled]="!locationForm.valid">Save</button>
 		</div>
 
 <!-- 		<div [hidden]="locationForm.valid || locationForm.pristine" >

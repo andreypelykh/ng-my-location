@@ -1,15 +1,15 @@
 <div class="edit">
 	<form (ngSubmit)="onSubmit(); !category && categoryForm.reset()" #categoryForm="ngForm">
 		
-		<md-form-field class="example-full-width">
+		<mat-form-field class="example-full-width">
 		  <!-- <input mdInput placeholder="Favorite food" value="Sushi"> -->
-			<input mdInput type="text" name="name" placeholder="Name" [(ngModel)]="modelName" #name="ngModel" required>
-		</md-form-field>
+			<input matInput type="text" name="name" placeholder="Name" [(ngModel)]="modelName" #name="ngModel" required>
+		</mat-form-field>
 
 
 
 
-		<button md-raised-button type="submit" [disabled]="!categoryForm.form.valid"><md-icon>save</md-icon> Save</button>
+		<button mat-raised-button type="submit" [disabled]="!categoryForm.form.valid"><mat-icon>save</mat-icon> Save</button>
 
 		<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
 			Name is required

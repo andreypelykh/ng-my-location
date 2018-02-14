@@ -5,7 +5,7 @@ import { LocationService } from '../../services/location.service';
 import { CategoryService } from '../../services/category.service';
 import { LocationsFilterService, LocationsFilter } from '../../services/locations-filter/locations-filter.service';
 import { Observable } from 'rxjs';
-import {MdSnackBar, MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import {MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { MainDialogComponent } from '../main-dialog/main-dialog.component';
 
 @Component({
@@ -28,8 +28,8 @@ export class PageLocationsComponent implements OnInit {
     private locationService: LocationService,
     private categoryService: CategoryService,
     private filterService: LocationsFilterService,
-    public snackBar: MdSnackBar,
-    public dialog: MdDialog
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
