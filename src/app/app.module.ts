@@ -30,16 +30,17 @@ import {
   MatGridListModule,
   MatSelectModule,
   MatSlideToggleModule,
-  MatDialogModule
+  MatDialogModule,
 } from '@angular/material';
 import { MainDialogComponent } from './components/main-dialog/main-dialog.component';
 
 const appRoutes: Routes = [
+  { path: 'building', loadChildren: 'app/building/building.module#BuildingModule' },
   { path: 'category', component: PageCategoriesComponent },
   { path: 'location', component: PageLocationsComponent },
   { path: 'location/:lat/:lng', component: LocationDetailComponent },
   { path: '',
-    redirectTo: '/category',
+    redirectTo: '/building',
     pathMatch: 'full'
   }
 ];
@@ -82,7 +83,7 @@ const appRoutes: Routes = [
     MatGridListModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   entryComponents: [
     MainDialogComponent

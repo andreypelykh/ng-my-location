@@ -4,6 +4,14 @@
 	box-sizing: border-box;
 }
 
+html, body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
 
 
 .container {
@@ -16,4 +24,13 @@
 	margin: 20px 0;
 	border: 1px solid #ddd;
 	padding: 10px;
+}
+
+.info-screen {
+	text-align: center;
+	padding: 20px;
+}
+
+.info-screen__message {
+	margin-bottom: 2em;
 }

@@ -1,0 +1,27 @@
+<div class="wrapper">
+	
+	<ng-container [ngSwitch]="state">
+	  <ng-container *ngSwitchCase="'loading'">
+			<div class="loading">
+				<mat-spinner></mat-spinner>
+			</div>
+	  </ng-container>
+	  <ng-container *ngSwitchCase="'map'">
+			<div class="map-screen">
+				<agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+				  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+				</agm-map>
+				<button class="map-screen__btn" mat-raised-button>Choose floor</button>
+			</div>
+	  </ng-container>
+	  <ng-container *ngSwitchCase="'info'">
+	  	<div class="info-screen">
+	  		<p class="info-screen__message">
+	  			Your building wasn't found in the database :(
+	  		</p>
+	  		<button class="info-screen__btn" mat-raised-button>Try again</button>
+	  	</div>
+	  </ng-container>
+	</ng-container>
+
+</div>
