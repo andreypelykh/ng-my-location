@@ -46,7 +46,6 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     CoreModule,
-    SharedModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only

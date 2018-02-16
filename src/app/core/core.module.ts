@@ -7,10 +7,11 @@ import { AsyncLocalStorageModule } from 'angular-async-local-storage';
 import { AgmCoreModule } from '@agm/core';
 
 import { GeolocationService } from './geolocation.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     AsyncLocalStorageModule,
@@ -19,6 +20,7 @@ import { GeolocationService } from './geolocation.service';
     }),
   ],
   exports: [
+    SharedModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

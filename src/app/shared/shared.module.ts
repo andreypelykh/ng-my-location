@@ -1,39 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import {
-  MatButtonToggleModule,
-  MatCheckboxModule,
-  MatButtonModule,
-  MatIconModule,
-  MatCardModule,
-  MatInputModule,
-  MatSnackBarModule,
-  MatToolbarModule,
-  MatGridListModule,
-  MatSelectModule,
-  MatSlideToggleModule,
-  MatDialogModule,
-} from '@angular/material';
-
-export const materialModules = [
-  MatButtonToggleModule,
-  MatCheckboxModule,
-  MatButtonModule,
-  MatIconModule,
-  MatCardModule,
-  MatInputModule,
-  MatSnackBarModule,
-  MatToolbarModule,
-  MatGridListModule,
-  MatSelectModule,
-  MatSlideToggleModule,
-  MatDialogModule,
-];
+import { CustomMaterialModule } from './custom-material/custom-material.module';
 
 export const modulesList = [
 	CommonModule,
-	...materialModules
+  CustomMaterialModule
 ];
 
 @NgModule({
