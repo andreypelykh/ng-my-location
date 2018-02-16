@@ -1,0 +1,18 @@
+.pinch-zoom__wrap {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.pinch-zoom__wrap img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.pinch-zoom__close-btn {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}

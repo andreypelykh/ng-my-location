@@ -6,8 +6,11 @@ import { BuildingLocationComponent } from './building-location/building-location
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AgmCoreModule } from '@agm/core';
+import { BuildingFloorListComponent } from './building-floor-list/building-floor-list.component';
+import { BuildingFloorComponent } from './building-floor/building-floor.component';
 
 @NgModule({
   imports: [
@@ -15,8 +18,9 @@ import { AgmCoreModule } from '@agm/core';
     BuildingRoutingModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    MatIconModule,
     AgmCoreModule,
   ],
-  declarations: [BuildingLocationComponent]
+  declarations: [BuildingLocationComponent, BuildingFloorListComponent, BuildingFloorComponent]
 })
 export class BuildingModule { }

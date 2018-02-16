@@ -1,0 +1,28 @@
+.floor-list {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 20px;
+}
+
+.floor-list__item {
+	margin: 1.83%;
+	width: 13%;
+	min-width: 0;
+	padding: 0;
+}
+
+.header {
+	position: relative;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header__btn {
+	position: absolute;
+	left: 5px;
+}
+.header__title {
+	text-align: center;
+}

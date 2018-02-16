@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AsyncLocalStorageModule } from 'angular-async-local-storage';
-import { AgmCoreModule } from '@agm/core';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { PageCategoriesComponent } from './components/page-categories/page-categories.component';
@@ -18,20 +16,6 @@ import { EditLocationComponent } from './components/edit-location/edit-location.
 import { LocationsFilterComponent } from './components/locations-filter/locations-filter.component';
 import { LocationDetailComponent } from './components/location-detail/location-detail.component';
 
-import {
-  MatButtonToggleModule,
-  MatCheckboxModule,
-  MatButtonModule,
-  MatIconModule,
-  MatCardModule,
-  MatInputModule,
-  MatSnackBarModule,
-  MatToolbarModule,
-  MatGridListModule,
-  MatSelectModule,
-  MatSlideToggleModule,
-  MatDialogModule,
-} from '@angular/material';
 import { MainDialogComponent } from './components/main-dialog/main-dialog.component';
 
 const appRoutes: Routes = [
@@ -61,29 +45,12 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AsyncLocalStorageModule,
-    ReactiveFormsModule,
-    FormsModule,
+    CoreModule,
+    SharedModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
     ),
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCB58SCEDd-OEoW7pgR7bR5BxiHZkWY2Gc'
-    }),
-    BrowserAnimationsModule,
-    MatButtonToggleModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatInputModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatSelectModule,
-    MatSlideToggleModule,
-    MatDialogModule,
   ],
   entryComponents: [
     MainDialogComponent
