@@ -19,12 +19,13 @@ import { LocationDetailComponent } from './components/location-detail/location-d
 import { MainDialogComponent } from './components/main-dialog/main-dialog.component';
 
 const appRoutes: Routes = [
+  { path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule' },
   { path: 'building', loadChildren: 'app/building/building.module#BuildingModule' },
   { path: 'category', component: PageCategoriesComponent },
   { path: 'location', component: PageLocationsComponent },
   { path: 'location/:lat/:lng', component: LocationDetailComponent },
   { path: '',
-    redirectTo: '/building',
+    redirectTo: 'auth',
     pathMatch: 'full'
   }
 ];

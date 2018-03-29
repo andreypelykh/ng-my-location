@@ -17,8 +17,8 @@ import { MainDialogComponent } from '../main-dialog/main-dialog.component';
 export class PageLocationsComponent implements OnInit {
 	selectedLocation: Location = null;
 	locations: Observable<Location[]>;
- //  isEditing: boolean = false;
-	// isAdding: boolean = false;
+  isEditing: boolean = false;
+	isAdding: boolean = false;
 
   categories: Category[];
 
@@ -60,7 +60,7 @@ export class PageLocationsComponent implements OnInit {
       },
       properties.categoryId
     ));
-    
+
     this.openSnackBar('Location was saved.')
   }
 
@@ -89,7 +89,7 @@ export class PageLocationsComponent implements OnInit {
       this.locationService.removeLocation(this.selectedLocation);
 
       this.openSnackBar('Location was removed.')
-    } 
+    }
   }
 
   filterChanged(filter: LocationsFilter) {
@@ -108,7 +108,7 @@ export class PageLocationsComponent implements OnInit {
       data: {
         title,
         location,
-        categories: this.categories 
+        categories: this.categories
       }
     });
 
