@@ -3,8 +3,12 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { environment } from '../../environments/environment';
+import { EVACUATION_DI_CONFIG } from '../app.config';
+
 import { AsyncLocalStorageModule } from 'angular-async-local-storage';
 import { AgmCoreModule } from '@agm/core';
+import { AngularFireModule } from 'angularfire2';
 
 import { GeolocationService } from './geolocation.service';
 import { SharedModule } from '../shared/shared.module';
@@ -15,9 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     AsyncLocalStorageModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCB58SCEDd-OEoW7pgR7bR5BxiHZkWY2Gc'
-    }),
+    AgmCoreModule.forRoot(EVACUATION_DI_CONFIG.googleMaps),
+    AngularFireModule.initializeApp(EVACUATION_DI_CONFIG.firebase),
   ],
   exports: [
     SharedModule,
@@ -25,7 +28,8 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     AsyncLocalStorageModule,
-    AgmCoreModule
+    AgmCoreModule,
+    AngularFireModule
   ],
   declarations: [],
   providers: [
